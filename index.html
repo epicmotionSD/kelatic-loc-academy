@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loc Academy – Learn the Art of Styling Locs | Kelatic Hair Lounge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      /* VIBRANT Colors */
+      --purple: #A855F7;
+      --purple-bright: #C084FC;
+      --purple-deep: #9333EA;
+      --violet: #8B5CF6;
+      --indigo: #6366F1;
+      --pink: #EC4899;
+      --pink-hot: #F472B6;
+      --blue-purple: #4F46E5;
+      
+      /* Light Mode */
+      --bg: #FFFFFF;
+      --bg-alt: #FAF5FF;
+      --text: #1F2937;
+      --text-muted: #6B7280;
+      --card-bg: #FFFFFF;
+      --card-border: #E5E7EB;
+      --footer-bg: #0F0F0F;
+    }
+    
+    [data-theme="dark"] {
+      --bg: #0F0A1A;
+      --bg-alt: #1A1025;
+      --text: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --card-bg: #1A1025;
+      --card-border: #2D2640;
+      --footer-bg: #0A0510;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    /* Dark Mode Toggle */
+    .theme-toggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+      z-index: 1000;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(168, 85, 247, 0.6);
+    }
+    
+    .theme-toggle .icon-sun,
+    .theme-toggle .icon-moon {
+      position: absolute;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    
+    .theme-toggle .icon-sun {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+    
+    .theme-toggle .icon-moon {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    
+    [data-theme="dark"] .theme-toggle .icon-sun {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    
+    [data-theme="dark"] .theme-toggle .icon-moon {
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+    
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(90deg, var(--purple) 0%, var(--pink) 50%, var(--purple-bright) 100%);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .top-banner a {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+    
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+    
+    .logo-sub {
+      font-size: 11px;
+      color: var(--purple);
+      letter-spacing: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .header-phone {
+      color: var(--purple-deep);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    
+    .header-btn {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      color: #FFFFFF;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .header-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+    }
+    
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 550px;
+      overflow: hidden;
+    }
+    
+    .hero-image {
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3);
+    }
+    
+    .hero-image-placeholder {
+      width: 100%;
+      height: 450px;
+      background: linear-gradient(135deg, var(--bg-alt) 0%, #E9D5FF 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+    }
+    
+    [data-theme="dark"] .hero-image-placeholder {
+      background: linear-gradient(135deg, var(--bg-alt) 0%, #2D1F4A 100%);
+    }
+    
+    .hero-brand-float {
+      position: absolute;
+      top: 60px;
+      left: 60px;
+    }
+    
+    .hero-brand-float .logo-text {
+      font-size: 48px;
+    }
+    
+    .hero-brand-float .logo-sub {
+      font-size: 13px;
+      color: var(--purple-deep);
+    }
+    
+    .hero-content {
+      background: linear-gradient(160deg, var(--purple) 0%, var(--violet) 40%, var(--blue-purple) 100%);
+      color: #FFFFFF;
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--blue-purple);
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 7vw, 80px);
+      font-weight: 700;
+      line-height: 1.0;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 17px;
+      opacity: 0.95;
+      margin-bottom: 40px;
+      max-width: 380px;
+    }
+    
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .hero-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 17px;
+      font-weight: 500;
+    }
+    
+    .hero-feature .check {
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    
+    .hero-cta {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 14px 24px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+    
+    .hero-phone-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--pink);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    
+    .hero-phone-text {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    .hero-phone-label {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+    
+    /* Courses Section */
+    .courses-section {
+      padding: 100px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+      color: var(--purple-deep);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    
+    /* Course Grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    
+    .course-card {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(168, 85, 247, 0.2);
+      border-color: var(--purple-bright);
+    }
+    
+    .course-card.featured {
+      border: 3px solid var(--purple);
+      position: relative;
+    }
+    
+    .course-card.featured::before {
+      content: '⭐ MOST POPULAR';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      z-index: 10;
+    }
+    
+    .course-header {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--violet) 50%, var(--blue-purple) 100%);
+      color: #FFFFFF;
+      padding: 28px;
+    }
+    
+    .course-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    
+    .course-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .course-duration {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .course-content {
+      padding: 28px;
+    }
+    
+    .course-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    
+    .course-price {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--purple-deep);
+    }
+    
+    .course-price-note {
+      font-size: 14px;
+      color: var(--pink);
+      font-weight: 700;
+    }
+    
+    .course-deposit {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+      color: var(--purple-deep);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+    
+    .course-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+    
+    .course-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    
+    .course-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    
+    .course-features li::before {
+      content: '✓';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .enroll-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      color: #FFFFFF;
+      border: none;
+      padding: 16px 28px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .enroll-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(168, 85, 247, 0.5);
+    }
+    
+    /* Upgrade Notice */
+    .upgrade-notice {
+      background: var(--bg-alt);
+      border: 2px solid var(--purple-bright);
+      border-radius: 20px;
+      padding: 28px 36px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    
+    .upgrade-notice h3 {
+      color: var(--purple-deep);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .upgrade-notice p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    
+    /* What You'll Learn */
+    .learn-section {
+      background: linear-gradient(160deg, var(--purple) 0%, var(--violet) 40%, var(--blue-purple) 100%);
+      padding: 100px 24px;
+      color: #FFFFFF;
+    }
+    
+    .learn-section .section-header h2 {
+      color: #FFFFFF;
+    }
+    
+    .learn-section .section-header p {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .learn-item {
+      text-align: center;
+      padding: 36px 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s, background 0.3s;
+    }
+    
+    .learn-item:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+    
+    .learn-icon {
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+    
+    .learn-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .learn-item p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    /* Instructor */
+    .instructor-section {
+      padding: 100px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .instructor-title {
+      font-size: 13px;
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .instructor-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    
+    .instructor-bio {
+      color: var(--text-muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 50%, var(--purple-bright) 100%);
+      padding: 100px 24px;
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 36px;
+      font-size: 18px;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      background: #FFFFFF;
+      color: var(--purple-deep);
+      padding: 18px 56px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--footer-bg);
+      color: #FFFFFF;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    .footer-address {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-contact a {
+      color: var(--purple-bright);
+      text-decoration: none;
+      margin: 0 16px;
+      font-weight: 600;
+    }
+    
+    .footer-copy {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid #374151;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-image {
+        order: 2;
+        padding: 24px;
+      }
+      
+      .hero-brand-float {
+        position: static;
+        margin-bottom: 20px;
+      }
+      
+      .hero-content {
+        order: 1;
+        padding: 48px 24px;
+      }
+      
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .learn-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .section-header h2 {
+        font-size: 36px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .header-cta {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+      }
+      
+      .header-btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .hero h1 {
+        font-size: 48px;
+      }
+      
+      .learn-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+      }
+      
+      .instructor-name {
+        font-size: 36px;
+      }
+      
+      .cta-section h2 {
+        font-size: 32px;
+      }
+      
+      .theme-toggle {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <!-- Top Banner -->
+  <div class="top-banner">
+    ✨ We are available for <strong>virtual consultations</strong> — <a href="tel:7134854000">Call 713-485-4000</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div>
+        <div class="logo-text">Kelatic</div>
+        <div class="logo-sub">Loc Academy</div>
+      </div>
+    </div>
+    <div class="header-cta">
+      <a href="tel:7134854000" class="header-phone">713-485-4000</a>
+      <a href="#courses" class="header-btn">View Classes</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-image">
+      <div class="hero-brand-float">
+        <div class="logo-text">Kelatic</div>
+        <div class="logo-sub">Loc Academy</div>
+      </div>
+      <!-- REPLACE: Add hero image here -->
+      <div class="hero-image-placeholder">👑</div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Look & Learn</div>
+      <h1>Loc<br>Classes</h1>
+      <p>This is a look and learn experience — does not include models</p>
+      
+      <div class="hero-subtitle">Why Choose Us?</div>
+      <div class="hero-features">
+        <div class="hero-feature">
+          <span class="check">✓</span>
+          <span>Shampooing</span>
+        </div>
+        <div class="hero-feature">
+          <span class="check">✓</span>
+          <span>Twisting</span>
+        </div>
+        <div class="hero-feature">
+          <span class="check">✓</span>
+          <span>Product Knowledge</span>
+        </div>
+        <div class="hero-feature">
+          <span class="check">✓</span>
+          <span>Styling</span>
+        </div>
+      </div>
+      
+      <div class="hero-cta">
+        <a href="tel:7134854000" class="hero-phone">
+          <div class="hero-phone-icon">📞</div>
+          <div>
+            <div class="hero-phone-text">7134854000</div>
+            <div class="hero-phone-label">Salon</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="courses-section" id="courses">
+    <div class="section-header">
+      <div class="section-badge">🎓 Now Enrolling</div>
+      <h2>Choose Your Path</h2>
+      <p>From observation to mastery — we have a program for every level of your loc journey</p>
+    </div>
+    
+    <div class="course-grid">
+      
+      <!-- Course 1: Look & Learn -->
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-tag">OBSERVATION</span>
+          <h3 class="course-title">Look & Learn Loc Class</h3>
+          <div class="course-duration">1-2 Days • Same Price</div>
+        </div>
+        <div class="course-content">
+          <div class="course-price-row">
+            <span class="course-price">$375</span>
+          </div>
+          <p class="course-desc">Designed for locticians and stylists who want to visually enhance their techniques through observation. No hands-on — strictly observe and ask questions.</p>
+          <ul class="course-features">
+            <li>Proper parting and grid correction demos</li>
+            <li>Loc smithing/palm rolling techniques</li>
+            <li>Starter loc demonstrations</li>
+            <li>Product knowledge & usage</li>
+            <li>Speed and efficiency training</li>
+          </ul>
+          <a href="https://buy.stripe.com/cNibJ10htcEK2Zd0j5fIs02" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+      
+      <!-- Course 2: 3-Day Hands-On -->
+      <div class="course-card featured">
+        <div class="course-header">
+          <span class="course-tag">HANDS-ON</span>
+          <h3 class="course-title">3-Day Hands-On Training</h3>
+          <div class="course-duration">Monday – Wednesday • 4 Students Max</div>
+        </div>
+        <div class="course-content">
+          <div class="course-price-row">
+            <span class="course-price">$1,200</span>
+          </div>
+          <div class="course-deposit">💳 $500 deposit • 2 payments of $350</div>
+          <p class="course-desc">For stylists who need hands-on guidance to clean up technique, increase speed, and gain confidence. Models provided every day.</p>
+          <ul class="course-features">
+            <li>Models provided daily</li>
+            <li>Shampooing, detoxing, deep cleansing</li>
+            <li>Parting and grid creation with precision</li>
+            <li>Loc smithing with tension control</li>
+            <li>Workflow management & styling</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQfZh3tFbAG43h1n9fIs03" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+      
+      <!-- Course 3: 4-Week Training -->
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-tag">FOUNDATION</span>
+          <h3 class="course-title">4-Week Loc Training</h3>
+          <div class="course-duration">Mon–Wed for 4 Weeks • 4 Students Max</div>
+        </div>
+        <div class="course-content">
+          <div class="course-price-row">
+            <span class="course-price">$3,000</span>
+          </div>
+          <div class="course-deposit">💳 $750 deposit • $750/week for 3 weeks</div>
+          <p class="course-desc">For individuals who have never done hair before or want to build a strong foundation as a future loctician. Model present every single day.</p>
+          <ul class="course-features">
+            <li>Week 1: Foundations & parting structure</li>
+            <li>Week 2: Shampooing & detoxing</li>
+            <li>Week 3: Loc smithing & styling</li>
+            <li>Week 4: Starter locs & speed training</li>
+            <li>Tools & products provided</li>
+          </ul>
+          <a href="https://buy.stripe.com/28EfZhfcnbAGgQ34zlfIs04" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+      
+      <!-- Course 4: 10-Week Master -->
+      <div class="course-card">
+        <div class="course-header" style="background: linear-gradient(135deg, var(--purple-deep) 0%, var(--pink) 100%);">
+          <span class="course-tag">MASTER CERTIFICATION</span>
+          <h3 class="course-title">10-Week Loc Master Semester</h3>
+          <div class="course-duration">January 5 – March 9 • 8 Students Max</div>
+        </div>
+        <div class="course-content">
+          <div class="course-price-row">
+            <span class="course-price">$6,500</span>
+            <span class="course-price-note">Save $2,500+</span>
+          </div>
+          <div class="course-deposit">💳 $750 deposit • Weekly payments</div>
+          <p class="course-desc">The MOST comprehensive training — beginner to advanced techniques including crocheting and interlocking. Models provided every day for 10 weeks.</p>
+          <ul class="course-features">
+            <li>Weeks 1-4: Complete foundations</li>
+            <li>Weeks 5-8: Advanced retwisting & styling</li>
+            <li>Weeks 9-10: Crocheting & interlocking</li>
+            <li>Business development coaching</li>
+            <li>All tools & products included</li>
+          </ul>
+          <a href="https://buy.stripe.com/3cIcN5aW70W21V9d5RfIs05" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Upgrade Notice -->
+    <div class="upgrade-notice">
+      <h3>💡 Upgrade Credit Policy</h3>
+      <p>Any previous class payments apply directly toward upgraded courses. You only pay the remaining balance.</p>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="learn-section">
+    <div class="section-header" style="margin-bottom: 60px;">
+      <h2>Why Choose Loc Academy?</h2>
+      <p>Real skills. Real techniques. Real results.</p>
+    </div>
+    
+    <div class="learn-grid">
+      <div class="learn-item">
+        <div class="learn-icon">🧴</div>
+        <h3>Shampooing</h3>
+        <p>Proper techniques, detox, and scalp health</p>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">🔄</div>
+        <h3>Twisting</h3>
+        <p>Palm rolling, tension control, and precision</p>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">📚</div>
+        <h3>Product Knowledge</h3>
+        <p>What works for different hair textures</p>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">✨</div>
+        <h3>Styling</h3>
+        <p>Updos, braided locs, and protective styles</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor -->
+  <section class="instructor-section">
+    <div class="instructor-title">Your Instructor</div>
+    <h2 class="instructor-name">The Loc Gawd — Kel</h2>
+    <p class="instructor-bio">Houston's premier loc expert with over a decade of experience crafting, styling, and teaching the art of locs. What started as a passion has grown into a movement — now it's your turn to learn from the best.</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Master the Art of Locs?</h2>
+    <p>Spaces are limited. Secure your spot in the next training session.</p>
+    <a href="tel:7134854000" class="cta-btn">Call to Enroll: 713-485-4000</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">Kelatic</div>
+    <div class="footer-address">9430 Richmond Ave, Houston, TX 77063</div>
+    <div class="footer-contact">
+      <a href="tel:7134854000">713-485-4000</a>
+      <a href="mailto:kelatic@gmail.com">kelatic@gmail.com</a>
+    </div>
+    <div class="footer-copy">© 2025 Kelatic Hair Lounge. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+    
+    // Load saved theme
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+</body>
+</html>
