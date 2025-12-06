@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loc Academy QR Poster - Print Me!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: 8.5in 11in; margin: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(160deg, #A855F7 0%, #8B5CF6 40%, #4F46E5 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .poster {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 8.5in;
+      min-height: 11in;
+      border-radius: 24px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+    }
+    .header-badge {
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      color: #FFFFFF;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 18px;
+      color: #9333EA;
+      letter-spacing: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #1F2937;
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .subhead {
+      color: #6B7280;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 400px;
+    }
+    .qr-container {
+      background: linear-gradient(135deg, #FAF5FF 0%, #FCE7F3 100%);
+      padding: 32px;
+      border-radius: 24px;
+      margin-bottom: 32px;
+      border: 3px solid #A855F7;
+    }
+    .qr-code {
+      width: 220px;
+      height: 220px;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+    }
+    .qr-code img { width: 200px; height: 200px; }
+    .scan-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #9333EA;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .scan-subtext {
+      color: #6B7280;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .courses-preview {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+    .course-mini {
+      background: linear-gradient(135deg, #A855F7 0%, #8B5CF6 100%);
+      color: #FFFFFF;
+      padding: 16px 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .course-mini-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .course-mini-price { font-size: 24px; font-weight: 800; }
+    .urgency {
+      background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+      color: #FFFFFF;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .contact { text-align: center; }
+    .phone { font-size: 36px; font-weight: 800; color: #9333EA; margin-bottom: 8px; }
+    .address { color: #6B7280; font-size: 14px; }
+    @media print {
+      body { background: #FFFFFF; padding: 0; }
+      .poster { box-shadow: none; border-radius: 0; max-width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="header-badge">✨ Now Enrolling</div>
+    <div class="logo-text">Kelatic</div>
+    <div class="logo-sub">Loc Academy</div>
+    <h1 class="headline">Learn the Art<br>of Styling Locs</h1>
+    <p class="subhead">Professional loc training from Houston's premier loc expert — The Loc Gawd</p>
+    <div class="scan-text">📱 Scan to Enroll</div>
+    <div class="qr-container">
+      <div class="qr-code">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://kelaticlocacademy.com&bgcolor=FFFFFF&color=9333EA" alt="Scan to visit Kelatic Loc Academy">
+      </div>
+    </div>
+    <p class="scan-subtext">Point your phone camera at the code</p>
+    <div class="courses-preview">
+      <div class="course-mini"><div class="course-mini-name">Look & Learn</div><div class="course-mini-price">$375</div></div>
+      <div class="course-mini"><div class="course-mini-name">3-Day Training</div><div class="course-mini-price">$1,200</div></div>
+      <div class="course-mini"><div class="course-mini-name">4-Week Course</div><div class="course-mini-price">$3,000</div></div>
+      <div class="course-mini"><div class="course-mini-name">10-Week Master</div><div class="course-mini-price">$6,500</div></div>
+    </div>
+    <div class="urgency">🔥 Limited Spots Available</div>
+    <div class="contact">
+      <div class="phone">713-485-4000</div>
+      <div class="address">9430 Richmond Ave, Houston, TX 77063</div>
+    </div>
+  </div>
+</body>
+</html>
