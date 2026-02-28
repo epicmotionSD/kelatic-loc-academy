@@ -586,7 +586,195 @@
     }
     
     .cta-btn:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); }
-    
+
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    }
+    .whatsapp-tooltip {
+      position: absolute;
+      left: 70px;
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 100px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: var(--purple-bright); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 28px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-question:hover { color: var(--purple-deep); }
+    .faq-icon {
+      font-size: 20px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .faq-answer-inner {
+      padding: 0 28px 24px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .faq-item.active .faq-answer { max-height: 300px; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal {
+      background: var(--card-bg);
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+    .modal-overlay.active .modal { transform: scale(1); }
+    .modal-header {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      color: #FFFFFF;
+      padding: 28px;
+      position: sticky;
+      top: 0;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      color: #FFFFFF;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .modal-subtitle { font-size: 14px; opacity: 0.9; margin-top: 8px; }
+    .modal-content { padding: 28px; }
+    .curriculum-week {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .curriculum-week:last-child { border-bottom: none; }
+    .week-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .week-content h4 { color: var(--text); font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .week-content p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    .syllabus-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 2px solid var(--purple);
+      color: var(--purple);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .syllabus-btn:hover {
+      background: var(--purple);
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-btn { width: 52px; height: 52px; font-size: 28px; bottom: 16px; left: 16px; }
+      .whatsapp-tooltip { display: none; }
+    }
+
     .footer { background: var(--footer-bg); color: #FFFFFF; padding: 60px 24px; text-align: center; }
     
     .footer-brand {
@@ -645,12 +833,17 @@
     <span class="icon-moon">🌙</span>
   </button>
 
+  <a href="sms:+18324526768?body=Hi! I'm interested in Loc Academy classes." class="whatsapp-btn" aria-label="Text us">
+    💬
+    <span class="whatsapp-tooltip">Text us now!</span>
+  </a>
+
   <div class="top-banner">
     ✨ We are available for <strong>virtual consultations</strong> — <a href="tel:7134854000">Call 713-485-4000</a>
   </div>
 
   <div class="countdown-banner">
-    <div class="countdown-label">🔥 10-Week Master Semester Starts January 5</div>
+    <div class="countdown-label">🔥 10-Week Master Semester Starts March 30, 2026 • Mon–Wed, 9 AM – 4 PM</div>
     <div class="countdown-timer" id="countdown">
       <div class="countdown-item">
         <span class="countdown-number" id="days">00</span>
@@ -752,7 +945,7 @@
         <div class="course-header">
           <span class="course-tag">HANDS-ON</span>
           <h3 class="course-title">3-Day Hands-On Training</h3>
-          <div class="course-duration">Monday – Wednesday • 4 Students Max</div>
+          <div class="course-duration">Monday – Wednesday, 9 AM – 4 PM • 4 Students Max</div>
         </div>
         <div class="course-content">
           <div class="course-price-row"><span class="course-price">$1,200</span></div>
@@ -774,7 +967,7 @@
         <div class="course-header">
           <span class="course-tag">FOUNDATION</span>
           <h3 class="course-title">4-Week Loc Training</h3>
-          <div class="course-duration">Mon–Wed for 4 Weeks • 4 Students Max</div>
+          <div class="course-duration">Mon–Wed, 9 AM – 4 PM for 4 Weeks • 4 Students Max</div>
         </div>
         <div class="course-content">
           <div class="course-price-row"><span class="course-price">$3,000</span></div>
@@ -787,7 +980,8 @@
             <li>Week 4: Starter locs & speed training</li>
             <li>Tools & products provided</li>
           </ul>
-          <a href="https://buy.stripe.com/28EfZhfcnbAGgQ34zlfIs04" class="enroll-btn">Enroll Now</a>
+          <button class="syllabus-btn" onclick="openModal('4week')">View Full Syllabus</button>
+          <a href="https://buy.stripe.com/28EfZhfcnbAGgQ34zlfIs04" class="enroll-btn" style="margin-top: 16px;">Enroll Now</a>
         </div>
       </div>
       
@@ -796,7 +990,7 @@
         <div class="course-header" style="background: linear-gradient(135deg, var(--purple-deep) 0%, var(--pink) 100%);">
           <span class="course-tag">MASTER CERTIFICATION</span>
           <h3 class="course-title">10-Week Loc Master Semester</h3>
-          <div class="course-duration">January 5 – March 9 • 8 Students Max</div>
+          <div class="course-duration">March 30 – June 3, 2026 • Mon–Wed, 9 AM – 4 PM • 8 Students Max</div>
         </div>
         <div class="course-content">
           <div class="course-price-row">
@@ -812,7 +1006,8 @@
             <li>Business development coaching</li>
             <li>All tools & products included</li>
           </ul>
-          <a href="https://buy.stripe.com/3cIcN5aW70W21V9d5RfIs05" class="enroll-btn">Enroll Now</a>
+          <button class="syllabus-btn" onclick="openModal('10week')">View Full Syllabus</button>
+          <a href="https://buy.stripe.com/3cIcN5aW70W21V9d5RfIs05" class="enroll-btn" style="margin-top: 16px;">Enroll Now</a>
         </div>
       </div>
     </div>
@@ -858,6 +1053,74 @@
     <p class="instructor-bio">Houston's premier loc expert with over a decade of experience crafting, styling, and teaching the art of locs. What started as a passion has grown into a movement — now it's your turn to learn from the best.</p>
   </section>
 
+  <section class="faq-section" id="faq">
+    <div class="section-header">
+      <div class="section-badge">❓ Common Questions</div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know before enrolling</p>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Do I need a cosmetology license to enroll?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">No license is required to take our classes. Our training is designed for anyone passionate about locs — whether you're a licensed cosmetologist, a natural hair enthusiast, or someone looking to start a new career. However, check your state's requirements if you plan to work professionally.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>What if I have zero hair experience?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">That's exactly who our 4-Week and 10-Week programs are designed for! We start from the absolute basics — proper parting, product knowledge, and foundational techniques. Many of our most successful graduates came in with no prior experience.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Can I make payments instead of paying upfront?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Absolutely! All courses except the Look & Learn offer flexible payment plans. Just pay the deposit to secure your spot, then complete payments weekly. We want training to be accessible — call us at 713-485-4000 to discuss a plan that works for you.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Are models provided for hands-on training?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes! For all hands-on courses (3-Day, 4-Week, and 10-Week), we provide models every single day. You'll work on real clients with diverse hair textures and loc stages, giving you practical experience that translates directly to your future career.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>What tools and products do I need to bring?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">For our 4-Week and 10-Week programs, all tools and products are included — you don't need to bring anything but yourself and a notebook. For the 3-Day Hands-On, we recommend bringing your own clips and comb, but we have extras available if needed.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Do you offer refunds if I can't attend?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Deposits are non-refundable but can be applied to a future class date. If you need to reschedule, just let us know at least 7 days in advance and we'll move your enrollment to the next available session at no extra charge.</div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <h2>Ready to Master the Art of Locs?</h2>
     <p>Spaces are limited. Secure your spot in the next training session.</p>
@@ -893,7 +1156,7 @@
     })();
     
     function updateCountdown() {
-      const targetDate = new Date('2025-01-05T09:00:00');
+      const targetDate = new Date('2026-03-30T09:00:00');
       const now = new Date();
       const diff = targetDate - now;
       
@@ -918,6 +1181,120 @@
     
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // FAQ Toggle
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
+    }
+
+    // Modal Functions
+    function openModal(type) {
+      document.getElementById(type + '-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(type) {
+      document.getElementById(type + '-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
   </script>
+
+  <!-- 4-Week Curriculum Modal -->
+  <div class="modal-overlay" id="4week-modal" onclick="if(event.target===this)closeModal('4week')">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal('4week')">✕</button>
+        <h3 class="modal-title">4-Week Loc Training</h3>
+        <p class="modal-subtitle">Complete week-by-week curriculum breakdown</p>
+      </div>
+      <div class="modal-content">
+        <div class="curriculum-week">
+          <div class="week-number">W1</div>
+          <div class="week-content">
+            <h4>Foundations & Parting Structure</h4>
+            <p>Learn proper sectioning, grid creation, and the fundamentals of loc architecture. Master the art of clean, even parts that set the foundation for beautiful locs.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W2</div>
+          <div class="week-content">
+            <h4>Shampooing & Detoxing</h4>
+            <p>Deep dive into scalp health, proper cleansing techniques, and detox methods. Learn product selection and how to prepare hair for optimal loc formation.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W3</div>
+          <div class="week-content">
+            <h4>Loc Smithing & Styling</h4>
+            <p>Master palm rolling, tension control, and retwisting techniques. Learn protective styles, updos, and how to style locs at various stages of maturity.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W4</div>
+          <div class="week-content">
+            <h4>Starter Locs & Speed Training</h4>
+            <p>Perfect your starter loc techniques and build speed without sacrificing quality. Time management, workflow optimization, and client consultation skills.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10-Week Curriculum Modal -->
+  <div class="modal-overlay" id="10week-modal" onclick="if(event.target===this)closeModal('10week')">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal('10week')">✕</button>
+        <h3 class="modal-title">10-Week Loc Master Semester</h3>
+        <p class="modal-subtitle">The most comprehensive loc training available</p>
+      </div>
+      <div class="modal-content">
+        <div class="curriculum-week">
+          <div class="week-number">W1-2</div>
+          <div class="week-content">
+            <h4>Foundations & Parting Mastery</h4>
+            <p>Deep dive into sectioning theory, grid systems, and precision parting. Work on multiple hair types and textures with live models daily.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W3-4</div>
+          <div class="week-content">
+            <h4>Shampooing, Detox & Scalp Health</h4>
+            <p>Master cleansing protocols, product chemistry, and scalp treatments. Learn to identify and address common scalp conditions in loc wearers.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W5-6</div>
+          <div class="week-content">
+            <h4>Advanced Retwisting Techniques</h4>
+            <p>Develop professional-grade retwisting skills with focus on speed, consistency, and tension control. Work with mature locs and various textures.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W7-8</div>
+          <div class="week-content">
+            <h4>Styling & Creative Techniques</h4>
+            <p>Master updos, braided styles, barrel rolls, and creative loc styling. Learn techniques for weddings, events, and everyday looks.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W9</div>
+          <div class="week-content">
+            <h4>Crocheting & Interlocking</h4>
+            <p>Learn the art of crochet maintenance and interlocking techniques. Understand when to use each method and perfect your needle work.</p>
+          </div>
+        </div>
+        <div class="curriculum-week">
+          <div class="week-number">W10</div>
+          <div class="week-content">
+            <h4>Business Development & Certification</h4>
+            <p>Build your brand, set pricing, market your services, and develop client retention strategies. Graduate with your official Loc Academy certification.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
