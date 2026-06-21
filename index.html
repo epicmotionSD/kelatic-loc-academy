@@ -730,6 +730,41 @@
     }
     .modal-subtitle { font-size: 14px; opacity: 0.9; margin-top: 8px; }
     .modal-content { padding: 28px; }
+    .pay-options { display: flex; flex-direction: column; gap: 16px; }
+    .pay-option {
+      display: block;
+      padding: 22px 24px;
+      border-radius: 16px;
+      border: 2px solid var(--card-border);
+      background: var(--card-bg);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+    .pay-option:hover {
+      transform: translateY(-2px);
+      border-color: var(--purple);
+      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.18);
+    }
+    .pay-option-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--purple-deep);
+      margin-bottom: 6px;
+    }
+    .pay-option-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .pay-option-note { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+    .pay-option.featured {
+      border-color: var(--purple);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%);
+    }
     .curriculum-week {
       display: flex;
       gap: 16px;
@@ -936,7 +971,7 @@
             <li>Product knowledge & usage</li>
             <li>Speed and efficiency training</li>
           </ul>
-          <a href="https://buy.stripe.com/cNibJ10htcEK2Zd0j5fIs02" class="enroll-btn">Enroll Now</a>
+          <a href="https://buy.stripe.com/bJe14n5BN206eHVd5RfIs09" class="enroll-btn">Enroll Now</a>
         </div>
       </div>
       
@@ -958,7 +993,7 @@
             <li>Loc smithing with tension control</li>
             <li>Workflow management & styling</li>
           </ul>
-          <a href="https://buy.stripe.com/5kQfZh3tFbAG43h1n9fIs03" class="enroll-btn">Enroll Now</a>
+          <button type="button" class="enroll-btn" onclick="openPayModal('3-Day Hands-On Training', '$1,200', 'https://buy.stripe.com/bJe14nggrawCgQ30j5fIs0a', '$500', 'https://buy.stripe.com/eVq00jfcnbAG2Zde9VfIs0b')">Enroll Now</button>
         </div>
       </div>
       
@@ -981,7 +1016,7 @@
             <li>Tools & products provided</li>
           </ul>
           <button class="syllabus-btn" onclick="openModal('4week')">View Full Syllabus</button>
-          <a href="https://buy.stripe.com/28EfZhfcnbAGgQ34zlfIs04" class="enroll-btn" style="margin-top: 16px;">Enroll Now</a>
+          <button type="button" class="enroll-btn" style="margin-top: 16px;" onclick="openPayModal('4-Week Loc Training', '$3,000', 'https://buy.stripe.com/3cIfZhd4f34a7fte9VfIs0c', '$750', 'https://buy.stripe.com/6oUcN50ht6gm1V92rdfIs0d')">Enroll Now</button>
         </div>
       </div>
       
@@ -1007,7 +1042,7 @@
             <li>All tools & products included</li>
           </ul>
           <button class="syllabus-btn" onclick="openModal('10week')">View Full Syllabus</button>
-          <a href="https://buy.stripe.com/3cIcN5aW70W21V9d5RfIs05" class="enroll-btn" style="margin-top: 16px;">Enroll Now</a>
+          <button type="button" class="enroll-btn" style="margin-top: 16px;" onclick="openPayModal('10-Week Loc Master Semester', '$6,500', 'https://buy.stripe.com/28E00jggreMS0R56HtfIs0e', '$750', 'https://buy.stripe.com/cNicN5fcn48eczNgi3fIs0f')">Enroll Now</button>
         </div>
       </div>
     </div>
@@ -1199,6 +1234,21 @@
       document.getElementById(type + '-modal').classList.remove('active');
       document.body.style.overflow = '';
     }
+
+    // Payment chooser: full vs. deposit
+    function openPayModal(course, fullAmount, fullUrl, depositAmount, depositUrl) {
+      document.getElementById('pay-modal-course').textContent = course;
+      document.getElementById('pay-modal-full-amount').textContent = fullAmount;
+      document.getElementById('pay-modal-full').href = fullUrl;
+      document.getElementById('pay-modal-deposit-amount').textContent = depositAmount + ' Deposit';
+      document.getElementById('pay-modal-deposit').href = depositUrl;
+      document.getElementById('pay-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePayModal() {
+      document.getElementById('pay-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
   </script>
 
   <!-- 4-Week Curriculum Modal -->
@@ -1292,6 +1342,31 @@
             <h4>Business Development & Certification</h4>
             <p>Build your brand, set pricing, market your services, and develop client retention strategies. Graduate with your official Loc Academy certification.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Choice Modal: Full vs. Deposit -->
+  <div class="modal-overlay" id="pay-modal" onclick="if(event.target===this)closePayModal()">
+    <div class="modal">
+      <div class="modal-header">
+        <button type="button" class="modal-close" onclick="closePayModal()">✕</button>
+        <h3 class="modal-title" id="pay-modal-course">Choose Your Payment</h3>
+        <p class="modal-subtitle">Pay in full or secure your spot with a deposit</p>
+      </div>
+      <div class="modal-content">
+        <div class="pay-options">
+          <a href="#" id="pay-modal-full" class="pay-option featured" target="_blank" rel="noopener">
+            <div class="pay-option-label">Pay in Full</div>
+            <div class="pay-option-amount" id="pay-modal-full-amount">$0</div>
+            <div class="pay-option-note">One-time payment — you're all set.</div>
+          </a>
+          <a href="#" id="pay-modal-deposit" class="pay-option" target="_blank" rel="noopener">
+            <div class="pay-option-label">Reserve Your Spot</div>
+            <div class="pay-option-amount" id="pay-modal-deposit-amount">$0 Deposit</div>
+            <div class="pay-option-note">Balance arranged separately — call 713-485-4000 to set up payments.</div>
+          </a>
         </div>
       </div>
     </div>
