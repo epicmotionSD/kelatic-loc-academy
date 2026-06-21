@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "name": "kelatic-loc-academy",
-  "public": true,
   "headers": [
     {
       "source": "/(.*)",
