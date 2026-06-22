@@ -92,62 +92,6 @@
     
     .top-banner a { color: #FFFFFF; text-decoration: underline; }
     
-    .countdown-banner {
-      background: linear-gradient(135deg, #0F0A1A 0%, #1A1025 100%);
-      color: #FFFFFF;
-      padding: 20px 24px;
-      text-align: center;
-    }
-    
-    .countdown-label {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      color: var(--pink-hot);
-      font-weight: 700;
-    }
-    
-    .countdown-timer {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    
-    .countdown-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 70px;
-    }
-    
-    .countdown-number {
-      font-size: 36px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--purple-bright) 0%, var(--pink) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-    }
-    
-    .countdown-unit {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-    
-    .countdown-divider {
-      font-size: 28px;
-      color: var(--purple);
-      font-weight: 300;
-      align-self: flex-start;
-      margin-top: 4px;
-    }
-    
     .header {
       display: flex;
       align-items: center;
@@ -843,7 +787,6 @@
       .course-grid { grid-template-columns: 1fr; }
       .learn-grid { grid-template-columns: repeat(2, 1fr); }
       .section-header h2 { font-size: 36px; }
-      .countdown-number { font-size: 28px; }
     }
     
     @media (max-width: 600px) {
@@ -856,9 +799,6 @@
       .instructor-name { font-size: 36px; }
       .cta-section h2 { font-size: 32px; }
       .theme-toggle { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
-      .countdown-timer { gap: 10px; }
-      .countdown-item { min-width: 55px; }
-      .countdown-number { font-size: 24px; }
     }
   </style>
 </head>
@@ -875,31 +815,6 @@
 
   <div class="top-banner">
     ✨ We are available for <strong>virtual consultations</strong> — <a href="tel:7134854000">Call 713-485-4000</a>
-  </div>
-
-  <div class="countdown-banner">
-    <div class="countdown-label">🔥 10-Week Master Semester Starts March 30, 2026 • Mon–Wed, 9 AM – 4 PM</div>
-    <div class="countdown-timer" id="countdown">
-      <div class="countdown-item">
-        <span class="countdown-number" id="days">00</span>
-        <span class="countdown-unit">Days</span>
-      </div>
-      <span class="countdown-divider">:</span>
-      <div class="countdown-item">
-        <span class="countdown-number" id="hours">00</span>
-        <span class="countdown-unit">Hours</span>
-      </div>
-      <span class="countdown-divider">:</span>
-      <div class="countdown-item">
-        <span class="countdown-number" id="minutes">00</span>
-        <span class="countdown-unit">Minutes</span>
-      </div>
-      <span class="countdown-divider">:</span>
-      <div class="countdown-item">
-        <span class="countdown-number" id="seconds">00</span>
-        <span class="countdown-unit">Seconds</span>
-      </div>
-    </div>
   </div>
 
   <header class="header">
@@ -1190,33 +1105,6 @@
       }
     })();
     
-    function updateCountdown() {
-      const targetDate = new Date('2026-03-30T09:00:00');
-      const now = new Date();
-      const diff = targetDate - now;
-      
-      if (diff <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
-      }
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      
-      document.getElementById('days').textContent = days.toString().padStart(2, '0');
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
     // FAQ Toggle
     function toggleFaq(btn) {
       const item = btn.parentElement;
