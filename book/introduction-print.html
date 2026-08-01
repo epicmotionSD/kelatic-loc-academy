@@ -2,74 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KeLatic: The Blueprint — The KeLatic Story</title>
-<meta name="description" content="The KeLatic Story — the free opening of KeLatic: The Blueprint, by Rockal.">
+<title>KeLatic: The Blueprint — Introduction (print master)</title>
+<!--
+  Print master for the Introduction ("The KeLatic Story"), pages 5-7 of
+  the-blueprint-vault-9He2Kx.pdf. Rendered at 6x9in via headless Chrome
+  printToPDF and spliced into the book with book/splice-intro.py.
+
+  The original book had no source document. This file is the source for the
+  Introduction from now on - revise here, re-render, re-splice.
+-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --silk:#F8F4EC; --ivory:#EFE9DD; --ink:#2B2723; --ink-soft:#4A443D;
-  --brass:#A6884E; --brass-deep:#8C7140; --hairbrass:rgba(166,136,78,.55);
-}
-*{ box-sizing:border-box; margin:0; padding:0; }
-body{ background:var(--silk); color:var(--ink); font-family:'EB Garamond',Georgia,serif; font-size:18px; line-height:1.68; }
-.wrap{ max-width:640px; margin:0 auto; padding:52px 24px 70px; }
-.opener{ text-align:center; margin-bottom:40px; }
-.opener .lab{ font-family:'Jost',sans-serif; font-weight:300; font-size:11px; letter-spacing:.38em; text-transform:uppercase; color:var(--brass-deep); }
-.opener .numwrap{ display:flex; align-items:center; justify-content:center; gap:14px; margin:16px 0; }
-.opener .numwrap:before,.opener .numwrap:after{ content:""; width:52px; border-top:1px solid var(--hairbrass); }
-.opener .num{ font-family:'Jost',sans-serif; font-weight:300; font-size:11px; letter-spacing:.36em; padding-left:.36em; text-transform:uppercase; color:var(--brass-deep); }
-.opener h1{ font-family:'Playfair Display',serif; font-weight:500; font-size:34px; line-height:1.2; margin:8px 0 12px; }
-.opener .sub{ font-style:italic; color:var(--ink-soft); font-size:17px; max-width:440px; margin:0 auto; }
-.epigraph{ text-align:center; max-width:460px; margin:34px auto 40px; }
-.epigraph .q{ font-family:'Playfair Display',serif; font-style:italic; font-size:19px; line-height:1.6; }
-.epigraph .a{ font-family:'Jost',sans-serif; font-weight:300; font-size:10.5px; letter-spacing:.36em; text-transform:uppercase; color:var(--brass-deep); margin-top:14px; }
-h3{ font-family:'Playfair Display',serif; font-weight:600; font-size:22px; margin:34px 0 12px; }
-h3 .tick{ color:var(--brass); font-size:13px; margin-right:9px; }p{ margin-bottom:14px; }
-em{ font-style:italic; } strong{ font-weight:600; }
-ol{ margin:6px 0 18px; padding-left:0; counter-reset:item; }
-ol li{ list-style:none; counter-increment:item; position:relative; padding-left:36px; margin-bottom:12px; }
-ol li:before{
-  content:counter(item); position:absolute; left:0; top:2px;
-  font-family:'Playfair Display',serif; font-size:14px; color:var(--brass-deep);
-  width:22px; height:22px; border:1px solid var(--hairbrass); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-}
-ul{ margin:6px 0 18px; padding-left:0; }
-ul li{ list-style:none; position:relative; padding-left:26px; margin-bottom:10px; }
-ul li:before{ content:"—"; position:absolute; left:0; color:var(--brass); }
-.chair{ background:var(--ivory); padding:22px 24px 18px; margin:26px 0; border-radius:2px; }
-.chair .lab{ font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:.34em; text-transform:uppercase; color:var(--brass-deep); margin-bottom:10px; }
-.chair p{ font-style:italic; color:var(--ink-soft); font-size:17px; }
-.work{ border:1px solid var(--brass); padding:24px 24px 18px; margin:32px 0 8px; position:relative; }
-.work .lab{ position:absolute; top:-9px; left:50%; transform:translateX(-50%); background:var(--silk); padding:0 14px; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.36em; text-transform:uppercase; color:var(--brass-deep); white-space:nowrap; }
-.orn{ text-align:center; color:var(--brass); font-size:11px; letter-spacing:.8em; padding-left:.8em; margin:40px 0; }
-.cta{ background:#26221E; color:var(--ivory); border-radius:4px; padding:34px 26px; text-align:center; margin-top:44px; }
-.cta .kicker{ font-family:'Jost',sans-serif; font-weight:300; font-size:10.5px; letter-spacing:.36em; text-transform:uppercase; color:#C9A961; }
-.cta h2{ font-family:'Playfair Display',serif; font-weight:500; font-size:24px; margin:12px 0 8px; }
-.cta p{ color:rgba(239,233,221,.75); font-size:16px; max-width:400px; margin:0 auto 18px; }
-.cta a{
-  display:inline-block; text-decoration:none; border:1px solid var(--brass); color:#C9A961;
-  padding:13px 30px; border-radius:3px; font-family:'Jost',sans-serif; font-size:12.5px; letter-spacing:.26em; text-transform:uppercase;
-}
-.cta a:hover{ background:rgba(166,136,78,.12); }
-.back{ display:block; text-align:center; margin-top:30px; color:var(--brass-deep); font-style:italic; text-decoration:none; font-size:16px; }
+  /* Palette lifted from the book's own content streams:
+     #F8F4EC silk, #A6884E brass, #8C7140 brass-deep, #4A443D ink-soft, #2B2723 ink */
+  :root{
+    --silk:#F8F4EC; --ivory:#EFE9DD; --ink:#2B2723; --ink-soft:#4A443D;
+    --brass:#A6884E; --brass-deep:#8C7140; --hairbrass:rgba(166,136,78,.55);
+  }
+
+  @page { size: 6in 9in; margin: 0.82in 0.78in 0.78in; }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ background:var(--silk); }
+
+  /* Full-bleed silk on every sheet. A fixed layer repeats on each printed page,
+     but its containing block is the @page CONTENT area - so it has to be pushed
+     back out by the page margins to reach the paper edge, or the margins print
+     white and the book's silk stops short. */
+  body::before{
+    content:"";
+    position:fixed;
+    top:-0.82in; left:-0.78in; right:-0.78in; bottom:-0.78in;
+    background:var(--silk);
+    z-index:-1;
+  }
+
+  body{
+    color:var(--ink);
+    font-family:'EB Garamond', Georgia, serif;
+    font-size:15px;
+    line-height:1.62;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  p{ margin-bottom:11px; text-align:justify; hyphens:auto; }
+  em{ font-style:italic; }
+  strong{ font-weight:600; }
+
+  /* ---- Opening page ---- */
+  .opener{ text-align:center; margin-bottom:26px; }
+  .opener .lab{
+    font-family:'Jost',sans-serif; font-weight:300; font-size:9.5px;
+    letter-spacing:.38em; padding-left:.38em; text-transform:uppercase; color:var(--brass-deep);
+  }
+  .opener .rulewrap{ display:flex; align-items:center; justify-content:center; gap:13px; margin:13px 0 9px; }
+  .opener .rulewrap:before, .opener .rulewrap:after{ content:""; width:46px; border-top:1px solid var(--hairbrass); }
+  .opener .mark{ color:var(--brass); font-size:8px; }
+  .opener h1{
+    font-family:'Playfair Display',serif; font-weight:500; font-size:29px;
+    line-height:1.18; margin-bottom:9px;
+  }
+  .opener .sub{
+    font-style:italic; color:var(--ink-soft); font-size:14px;
+    max-width:19em; margin:0 auto; line-height:1.5;
+  }
+
+  .epigraph{ text-align:center; max-width:20em; margin:22px auto 26px; }
+  .epigraph .q{ font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; line-height:1.55; }
+  .epigraph .a{
+    font-family:'Jost',sans-serif; font-weight:300; font-size:9px; letter-spacing:.34em;
+    padding-left:.34em; text-transform:uppercase; color:var(--brass-deep); margin-top:11px;
+  }
+
+  /* ---- Section heads ---- */
+  h3{
+    font-family:'Playfair Display',serif; font-weight:600; font-size:17px;
+    margin:22px 0 9px; line-height:1.3;
+    break-after:avoid; page-break-after:avoid;
+  }
+  h3 .tick{ color:var(--brass); font-size:10px; margin-right:8px; }
+  h3 + p{ break-before:avoid; page-break-before:avoid; }
+
+  /* ---- Pull box ---- */
+  .chair{ background:var(--ivory); padding:17px 19px 14px; margin:20px 0; break-inside:avoid; page-break-inside:avoid; }
+  .chair .lab{
+    font-family:'Jost',sans-serif; font-weight:300; font-size:9px; letter-spacing:.34em;
+    padding-left:.34em; text-transform:uppercase; color:var(--brass-deep); margin-bottom:8px;
+  }
+  .chair p{ font-style:italic; color:var(--ink-soft); font-size:14.5px; margin-bottom:0; text-align:left; }
+
+  /* ---- Closing device ---- */
+  .work{ border:1px solid var(--brass); padding:19px 20px 15px; margin:26px 0 6px; position:relative; break-inside:avoid; page-break-inside:avoid; }
+  .work .lab{
+    position:absolute; top:-7px; left:50%; transform:translateX(-50%); background:var(--silk);
+    padding:0 12px; font-family:'Jost',sans-serif; font-size:9px; letter-spacing:.34em;
+    text-transform:uppercase; color:var(--brass-deep); white-space:nowrap;
+  }
+  .work p{ margin-bottom:0; text-align:center; font-style:italic; color:var(--ink-soft); }
+
+  .orn{ text-align:center; color:var(--brass); font-size:9px; letter-spacing:.8em; padding-left:.8em; margin-top:24px; }
 </style>
 </head>
 <body>
-<div class="wrap">
+
   <div class="opener">
-    <div class="lab">Kelatic: The Blueprint &middot; Free Excerpt</div>
-    <div class="numwrap"><span class="num">Introduction</span></div>
+    <div class="lab">Introduction</div>
+    <div class="rulewrap"><span class="mark">&#9670;</span></div>
     <h1>The KeLatic Story</h1>
     <div class="sub">Why this book exists &mdash; and what it actually cost to build the blueprint</div>
   </div>
 
   <div class="epigraph">
     <div class="q">&ldquo;When you decide to do someone&rsquo;s hair, you&rsquo;re not just styling it. You&rsquo;re giving them an experience they carry with them long after they leave your chair.&rdquo;</div>
-    <div class="a">Rockal &middot; Founder, KeLatic Hair Lounge</div>
+    <div class="a">Rockal</div>
   </div>
 
   <h3><span class="tick">&#9670;</span>Let Me Tell You What Nobody Told Me</h3>
@@ -111,14 +160,5 @@ ul li:before{ content:"—"; position:absolute; left:0; color:var(--brass); }
 
   <div class="orn">&#9670; &#9670; &#9670;</div>
 
-  <div class="cta">
-    <div class="kicker">Continue the Blueprint</div>
-    <h2>Twelve chapters are waiting.</h2>
-    <p>Your salon, your team, your systems, four streams of income, scaling to a corporation, and the mindset that holds it all &mdash; the complete KeLatic Blueprint.</p>
-    <a href="https://buy.stripe.com/14AeVdggrgV043h7LxfIs0h">Get the Full Blueprint &mdash; $37</a>
-  </div>
-
-  <a class="back" href="/links">&larr; Back to KeLatic links</a>
-</div>
 </body>
 </html>

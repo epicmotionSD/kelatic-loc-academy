@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silk sheet</title>
+<!--
+  One 6x9in sheet of the book's page colour, full bleed.
+
+  Chrome will not paint an @page margin area: a fixed layer is clipped to the
+  page content box, and `background` on @page is unsupported. So the
+  Introduction is rendered as text-on-transparent with proper @page margins,
+  then composited over this sheet by book/splice-intro.py. That is also how the
+  original book was built - its content streams fill `0 0 432 648 re` per page.
+-->
+<style>
+  @page { size: 6in 9in; margin: 0; }
+  *{ margin:0; padding:0; }
+  html, body{ width:6in; height:9in; }
+  .sheet{
+    width:6in; height:9in;
+    background:#F8F4EC;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+</style>
+</head>
+<body><div class="sheet"></div></body>
+</html>
